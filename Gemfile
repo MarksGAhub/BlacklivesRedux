@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog', '1.29.0'
@@ -22,6 +23,7 @@ gem 'figaro'
 gem 'materialize-sass'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 gem 'active_model_serializers'
 gem 'bower-rails'
 gem 'responders'
