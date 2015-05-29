@@ -14,10 +14,12 @@ function($scope){
   {title: 'post 4'}
 
   ];
-
-
+// The below if statement is preventing a user from submitting a blank title.
+if(!$scope.title || $scope.title === '') { return; }
+// The addPost function is retrieving the title entered into the form
 $scope.addPost = function(){
-  $scope.posts.push({title: 'A new post!'});
+  $scope.posts.push({title: $scope.title});
+  $scope.title ='';
 };
 
 }]);
