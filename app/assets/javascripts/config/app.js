@@ -2,7 +2,33 @@
 
 
 (function(){
-angular.module('blacklives', [])
+angular.module('blacklives', ['ui.router'])
+//  The .config function is setting up a home state
+.config([
+'$stateProvider',
+'$urlRouteProvider',
+function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl'
+    });
+
+    $urlRouterProvider.otherwise('home');
+
+    $stateProvider
+      .state('posts',{
+        url: '/posts/{id}',
+        templateUrl: '/posts.html',
+        controller: 'PostsCtrl'
+      });
+}])
+
+
+
+
 // The below factory is a Service - which is creating an object to organize and share data across the app.
 .factory('posts',[function(){
 // Creating a new object with an array property called posts.

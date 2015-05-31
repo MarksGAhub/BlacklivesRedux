@@ -1,6 +1,12 @@
+<!--  This is a test file to see if index page renders without rails server. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
 
-
-
+  <script src="config/app.js"></script>
+</head>
 
 <!-- This information is being displayed in the application.html.erb  -->
 <body ng-app='blacklives'>
@@ -14,26 +20,26 @@
 
 
               <!-- ng-repeat allows the info from the app.js to be repeated in an array.  -->
-              <!-- <div ng-repeat="post in posts"> -->
+              <div ng-repeat="post in posts">
                           <!-- Is pulling info from app.js to display an array of posts. -->
-                        <!-- {{post.title}} -->
+                        {{post.title}}
                         <!-- The below is a button for adding posts -->
-              <!-- </div>
+              </div>
 
             <form ng-submit='addPost()'>
 
-                  <h3>Add a new post</h3> -->
+                  <h3>Add a new post</h3>
                       <!-- Below is a div containing the form -->
-                  <!--   <div class="form-group">
+                    <div class="form-group">
                       <input type="text" class="form-control" placeholder="Title" ng-model="title"/>
                     </div>
 
-                    <div> -->
+                    <div>
                     <!-- A submit button -->
-                      <!--   <button type='submit' class='btn-primary'>Post</button>
+                        <button type='submit' class='btn-primary'>Post</button>
                     </div>
 
-            </form> -->
+            </form>
 
 
 
@@ -47,5 +53,7 @@
     </script>
 
 </body>
+
+</html>
 
 
