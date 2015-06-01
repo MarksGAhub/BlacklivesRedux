@@ -1,15 +1,9 @@
-//IFFE
+//IFFE begin
 
 (function(){
 angular.module('blacklives', [])
-// The below factory is a Service - which is creating an object to organize and share data across the app.
-.factory('posts',[function(){
-// Creating a new object with an array property called posts.
-    var o = {
-        posts:[]
-    };
-    return o;
-}])
+
+
 .controller('MainCtrl', [
 '$scope',
 // posts is being injected into the MainCtrl
@@ -31,10 +25,22 @@ function($scope, posts){
 if(!$scope.title || $scope.title === '') { return; }
 // The addPost function is retrieving the title entered into the form
 $scope.addPost = function(){
-  $scope.posts.push({title: $scope.title});
+  $scope.posts.push({
+    title: $scope.title,
+    comments: [
+              {author: 'Deviljho', body: 'Roooar!!'},
+              {author: 'Tigrex', body: 'Im always Hangry!!'}
+              ]
+
+  });
+
   $scope.title ='';
+
 };
+
+
 
 }]);
 
 })();
+//IFFE end
