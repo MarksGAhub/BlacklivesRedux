@@ -60,19 +60,38 @@
         if(!$scope.title || $scope.title === '') { return; }
         // The addPost function is retrieving the title entered into the form
         $scope.addPost = function(){
-          $scope.posts.push({title: $scope.title});
+          $scope.posts.push({
+            title: $scope.title,
+            // Creating an array of comments to test comment data and add to posts.
+            comments: [
+              {author: 'Deviljho', body: 'Roooar!!'},
+              {author: 'Tigrex', body: 'Im always Hangry!!'}
+            ]
+          });
+
           $scope.title ='';
       };
 
-    }]);
+    }])
     // End of MainCtrl.
     //
     //PostCtrl Start.
     .controller('PostCtrl',[
       '$scope',
+      // stateParams is retrieving the id from the URL to load the right posts
       '$stateParams',
       'posts',
       function($scope, $stateParams, posts) {
+        $scope.post = posts.posts[$stateParams.id];
+
+        $scope.addComment = function(){
+          if($scope.body === '' ){ return; }
+          $scope.posts.comments.push({
+            body: $scope.body,
+            author: 'user',
+          });
+          $scope.body = '';
+        };
 
       }]);
       // PostCtrl end.
