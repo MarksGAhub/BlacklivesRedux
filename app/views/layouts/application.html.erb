@@ -5,10 +5,84 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+ <script src="config/app.js"></script>
+</head>
+
+<!-- This information is being displayed in the application.html.erb  -->
+<body ng-app='blacklives'>
+    <div class='row'>
+        <!-- The below column is 6 wide and off set by 3 from the left. -->
+        <div class="col-md-6 col-md-offset-3">
+            <!-- Telling ui-router where to place the template of the active state.  -->
+          <ui-view></ui-view>
+
+            <!-- The below div contains the page header. -->
+
+
+              <!-- ng-repeat allows the info from the app.js to be repeated in an array.  -->
+              <div ng-repeat="post in posts">
+                          <!-- Is pulling info from app.js to display an array of posts. -->
+                        {{post.title}}
+                        <!-- The below is a button for adding posts -->
+              </div>
+               <span>
+                  <a href="#/posts/{{$index}}">Comments</a>
+               </span>
+
+            <form ng-submit='addPost()'>
+
+                  <h3>Add a new post</h3>
+                      <!-- Below is a div containing the form -->
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Title" ng-model="title"/>
+                    </div>
+
+                    <div>
+                    <!-- A submit button -->
+                        <button type='submit' class='btn-primary'>Post</button>
+                    </div>
+
+            </form>
+
+
+
+        </div>
+    </div>
+<!-- This script allows for the creation of templates inside HTML -->
+    <script type='text/ng-template' id='/home.html'>
+       <div class="page-header">
+            <h2>Black Lives Matter: Remembered</h2>
+       </div>
+    </script>
+
+    <script type='text/ng-template' id='/posts.html'>
+
+    // <!-- post template -->
+
+      <div> class='page-header'>
+        <h3> {{post.title}} </h3>
+      </div>
+
+          <div ng-repeat="comment in post.comments ">
+              <span>
+                 {{comment.author}}
+              </span>
+
+              <span>
+                {{comment.body}}
+              </span>
+          </div>
+              <form ng-submit='addComment()'>
+                          <h3> Add a new comment </h3>
+                <div class='form-group'>
+                    <input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
+                </div>
+                  <button type="submit" class="btn btn-primary">Post</button>
+              </form>
+    </script>
+
 
 </body>
+
 </html>

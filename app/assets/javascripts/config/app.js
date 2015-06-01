@@ -1,6 +1,6 @@
 //IFFE start
 (function(){
-    angular.module('blacklives', ['ui.router'])
+    angular.module('blacklives', ['ui.router','templates'])
     //  The .config function is setting up a home state
     .config([
     '$stateProvider',
