@@ -10,7 +10,12 @@ class PostsController < ApplicationController
     end
 
 
-    def create show
+    def create
+        respond_with Post.create(post_params)
+    end
+
+
+    def show
         respond_with Post.find(params[:id])
     end
 
