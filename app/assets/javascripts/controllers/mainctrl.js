@@ -14,18 +14,23 @@ function($scope, posts){
   $scope.posts = posts.posts;
 
 
-// The below if statement is preventing a user from submitting a blank title.
-if(!$scope.title || $scope.title === '') { return; }
+
 // The addPost function is retrieving the title entered into the form
 $scope.addPost = function(){
-  $scope.posts.push({
-    title: $scope.title,
-    comments: [
-              {author: 'Deviljho', body: 'Roooar!!'},
-              {author: 'Tigrex', body: 'Im always Hangry!!'}
-              ]
+    // The below if statement is preventing a user from submitting a blank title.
+    if(!$scope.title || $scope.title === '') { return; }
+    posts.create({
+        title: $scope.title,
+    });
 
-  });
+  // $scope.posts.push({
+
+  //   comments: [
+  //             {author: 'Deviljho', body: 'Roooar!!'},
+  //             {author: 'Tigrex', body: 'Im always Hangry!!'}
+  //             ]
+
+  // });
 
   $scope.title ='';
 
