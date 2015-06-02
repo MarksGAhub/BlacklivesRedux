@@ -1,5 +1,5 @@
 //IFFE begin
-
+//Removed a dependency in the angular module as it was overriding the app.js dependency.
 (function(){
 angular.module('blacklives')
 
