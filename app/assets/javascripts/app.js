@@ -12,7 +12,13 @@
         .state('home', {
           url: '/home',
           templateUrl: 'home/home.html',
-          controller: 'MainCtrl'
+          controller: 'MainCtrl',
+          // placed resolve property of ui-router beneath MainCtrl was only place not causing issues.
+          resolve: {
+            postPromise: ['posts', function(posts){
+              return posts.getAll();
+            }]
+          }
         })
 
           .state('posts',{
