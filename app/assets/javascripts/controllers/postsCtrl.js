@@ -6,16 +6,26 @@ angular.module('blacklives')
       '$stateParams',
       'posts',
       function($scope, $stateParams, posts) {
-        $scope.post = posts.posts[$stateParams.id];
+        $scope.comments = [];
 
         $scope.addComment = function(){
-          if($scope.body === '' ){ return; }
-          $scope.posts.comments.push({
-            body: $scope.body,
-            author: 'user',
-          });
-          $scope.body = '';
+            $scope.comments.push({
+                name: 'Markus',
+                comment: $scope.comment
+            });
+
+
         };
+        // $scope.post = posts.posts[$stateParams.id];
+
+        // $scope.addComment = function(){
+        //   if($scope.body === '' ){ return; }
+        //   $scope.posts.comments.push({
+        //     body: $scope.body,
+        //     author: 'user',
+        //   });
+        //   $scope.body = '';
+        // };
 
       }]);
       // PostCtrl end.

@@ -9,23 +9,32 @@
     function($stateProvider, $urlRouterProvider) {
 
       $stateProvider
-        .state('home', {
-          url: '/home',
-          templateUrl: 'home/home.html',
+      // This is the landing page.
+        .state('index', {
+          url: '/index',
+          templateUrl: 'index/index.html',
           controller: 'MainCtrl',
           // placed resolve property of ui-router beneath MainCtrl was only place not causing issues.
-          resolve: {
-            postPromise: ['posts', function(posts){
-              return posts.getAll();
-            }]
-          }
+          // resolve: {
+          //   postPromise: ['posts', function(posts){
+          //     return posts.getAll();
+          //   }]
+          // }
         })
+          // This page is the index page displaying posts.
+          .state('home', {
+            url: '/home',
+            templateUrl: 'home/home.html',
+            controller: 'MainCtrl'
+          })
 
           .state('posts',{
             url: '/posts/{id}',
             templateUrl: 'posts/_posts.html',
             controller: 'PostCtrl'
           });
+
+
 
 
 // The below ensures that if something is not set up, users are sent back to the home page.
