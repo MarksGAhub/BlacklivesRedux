@@ -1,7 +1,7 @@
 //IFFE begin
 
 (function(){
-angular.module('blacklives', [])
+angular.module('blacklives')
 
 
 .controller('MainCtrl', [
@@ -13,14 +13,7 @@ function($scope, posts){
 // Binding the $scope variable in our controller to the posts array in the Service(the .factory above)
   $scope.posts = posts.posts;
 
-  // [
 
-  // {title: 'post 1'},
-  // {title: 'post 2'},
-  // {title: 'post 3'},
-  // {title: 'post 4'}
-
-  // ];
 // The below if statement is preventing a user from submitting a blank title.
 if(!$scope.title || $scope.title === '') { return; }
 // The addPost function is retrieving the title entered into the form

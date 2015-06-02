@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="blacklives">
+<html>
 <head>
   <title>Blacklives</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
- <script src="config/app.js"></script>
 </head>
 
 <!-- This information is being displayed in the application.html.erb  -->
@@ -17,33 +15,34 @@
             <!-- Telling ui-router where to place the template of the active state.  -->
           <ui-view></ui-view>
 
+
             <!-- The below div contains the page header. -->
 
 
               <!-- ng-repeat allows the info from the app.js to be repeated in an array.  -->
-              <div ng-repeat="post in posts">
+              <!-- <div ng-repeat="post in posts"> -->
                           <!-- Is pulling info from app.js to display an array of posts. -->
-                        {{post.title}}
-                        <!-- The below is a button for adding posts -->
-              </div>
+                        <!-- {{post.title}} -->
+
+           <!--    </div>
                <span>
                   <a href="#/posts/{{$index}}">Comments</a>
-               </span>
+               </span> -->
 
-            <form ng-submit='addPost()'>
+            <!-- <form ng-submit='addPost()'> -->
 
-                  <h3>Add a new post</h3>
+                  <!-- <h3>Add a new post</h3> -->
                       <!-- Below is a div containing the form -->
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Title" ng-model="title"/>
-                    </div>
+                    <!-- <div class="form-group"> -->
+                      <!-- <input type="text" class="form-control" placeholder="Title" ng-model="title"/> -->
+                    <!-- </div> -->
 
-                    <div>
+                    <!-- <div> -->
                     <!-- A submit button -->
-                        <button type='submit' class='btn-primary'>Post</button>
-                    </div>
+                        <!-- <button type='submit' class='btn-primary'>Post</button> -->
+                    <!-- </div> -->
 
-            </form>
+            <!-- </form> -->
 
 
 
