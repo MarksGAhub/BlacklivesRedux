@@ -1,8 +1,47 @@
+
+
+
+
 <!-- This information is being displayed in the application.html.erb  -->
-<body ng-app='blacklives' ng-controller='MainCtrl'>
-  <div>
-    {{test}}
-  </div>
+<body ng-app='blacklives'>
+    <div class='row'>
+        <!-- The below column is 6 wide and off set by 3 from the left. -->
+        <div class="col-md-6 col-md-offset-3">
+            <!-- Telling ui-router where to place the template of the active state.  -->
+          <ui-view></ui-view>
+
+            <!-- The below div contains the page header. -->
+
+
+              <!-- ng-repeat allows the info from the app.js to be repeated in an array.  -->
+              <!-- <div ng-repeat="post in posts"> -->
+                          <!-- Is pulling info from app.js to display an array of posts. -->
+                        <!-- {{post.title}} -->
+                        <!-- The below is a button for adding posts -->
+              <!-- </div>
+
+            <form ng-submit='addPost()'>
+
+                  <h3>Add a new post</h3> -->
+                      <!-- Below is a div containing the form -->
+                  <!--   <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Title" ng-model="title"/>
+                    </div>
+
+                    <div> -->
+                    <!-- A submit button -->
+                      <!--   <button type='submit' class='btn-primary'>Post</button>
+                    </div>
+
+            </form> -->
+
+
+
+        </div>
+    </div>
+<!-- This script allows for the creation of templates inside HTML -->
+
+
 </body>
 
 

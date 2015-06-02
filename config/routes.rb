@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-   root 'pages#index'
+  root to: 'application#angular'
 
-  get 'pages/about'
+  resources :posts, only: [:create, :index, :show] do
+    resources :comments, only: [:show, :create]
+  end
 
-  get 'pages/contact'
+  # root 'pages#index'
+
+  # get 'pages/about'
+
+  # get 'pages/contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
 
     validate  :picture_size
 
+    def as_json(options = {})
+      super(options.merge(include: :comments))
+    end
+
     private
 
       def picture_size
