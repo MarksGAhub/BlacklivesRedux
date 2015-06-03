@@ -27,6 +27,7 @@ gem 'active_model_serializers'
 gem 'bower-rails'
 gem 'responders'
 gem 'sprockets', '2.12.3'
+gem 'devise', '~> 3.4.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

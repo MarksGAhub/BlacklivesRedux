@@ -9,7 +9,7 @@
     function($stateProvider, $urlRouterProvider) {
 
       $stateProvider
-      // This is the landing page.
+      // This is the page that will display an index of posts.
         .state('index', {
           url: '/index',
           templateUrl: 'index/index.html',
@@ -21,7 +21,7 @@
           //   }]
           // }
         })
-          // This page is the index page displaying posts.
+          // This page is the landing page displaying posts.
           .state('home', {
             url: '/home',
             templateUrl: 'home/home.html',
