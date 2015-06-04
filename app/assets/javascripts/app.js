@@ -1,7 +1,7 @@
 // This file will contain all of the states and Urls for the app.
 //IFFE start
 (function(){
-    angular.module('blacklives', ['ui.router','templates'])
+    angular.module('blacklives', ['ui.router','templates', 'Devise'])
     //  The .config function is setting up a home state
     .config([
     '$stateProvider',
