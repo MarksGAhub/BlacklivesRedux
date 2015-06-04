@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
     render 'layouts/application'
   end
 
+# made devise controllers aware of the username attribute when signing up by
+# adding it to the allowed parameters through a filter:
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
