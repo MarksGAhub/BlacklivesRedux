@@ -32,6 +32,18 @@
             url: '/posts/{id}',
             templateUrl: 'posts/_posts.html',
             controller: 'PostCtrl'
+          })
+
+          .state('login',{
+            url: '/login',
+            templateUrl: 'auth/_login.html',
+            controller: 'AuthCtrl'
+          })
+
+          .state('register',{
+            url:'/register',
+            templateUrl: 'auth/_register.html',
+            controller: 'AuthCtrl'
           });
 
 
