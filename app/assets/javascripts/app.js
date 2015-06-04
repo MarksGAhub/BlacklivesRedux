@@ -37,13 +37,24 @@
           .state('login',{
             url: '/login',
             templateUrl: 'auth/_login.html',
-            controller: 'AuthCtrl'
+            controller: 'AuthCtrl',
+            onEnter: ['$state', 'Auth', function($state, Auth){
+              Auth.currentUser().then(function(){
+                $state.go('home');
+              });
+            }]
           })
 
           .state('register',{
             url:'/register',
             templateUrl: 'auth/_register.html',
-            controller: 'AuthCtrl'
+            controller: 'AuthCtrl',
+            // the onEnter callback will send users home if we detect that they are authenticated.
+            onEnter: ['$state', 'Auth', function($state, Auth){
+              Auth.currentUser().then(function(){
+                $state.go('home');
+              });
+            }]
           });
 
 
