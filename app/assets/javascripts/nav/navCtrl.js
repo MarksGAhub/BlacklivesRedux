@@ -6,9 +6,6 @@ angular.module('blacklives')
     $scope.signedIn = Auth.isAuthenticated;
     $scope.logout = Auth.logout;
 
-
-        }]);
-
     Auth.currentUser().then(function(){
         $scope.user = user;
     });
@@ -24,4 +21,8 @@ angular.module('blacklives')
     $scope.$on('devise:logout', function (e, user){
         $scope.user ={};
     });
+
+}]);
+
+
 

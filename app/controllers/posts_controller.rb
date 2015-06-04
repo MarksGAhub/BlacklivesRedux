@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     # changing restriction to only allow authenticated users to post.
-    before_filter :authenticate_user!, only: [:create]
+    # before_filter :authenticate_user!, only: [:create]
 
     def post_params
         params.require(:post).permit(:title)
