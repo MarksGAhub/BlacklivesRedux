@@ -3,14 +3,25 @@ angular.module('blacklives')
     .factory('posts',[ '$http',function($http){
     // Creating a new object with an array property called posts.
         var o = {
-            posts:[
-
-          {title: 'post 1'},
-          {title: 'post 2'},
-          {title: 'post 3'},
-          {title: 'post 4'}
-
-          ]
+            posts:[]
+        };
+        o.getAll = function() {
+          return $http.get('/posts.json').success(function(data){
+            angular.copy(data, o.posts);
+          });
+        };
+        o.create = function(post) {
+          return $http.post('/posts.json').success(function(data){
+            o.posts.push(data);
+          });
+        };
+        o.get = function(id) {
+          return $http.get('/posts/' + id + '.json').then(function(res){
+            return res.data;
+          });
+        };
+        o.addComment = function(id, comment) {
+          return $http.post('/posts/' + id + '/comments.json', comment);
         };
         return o;
     }]);

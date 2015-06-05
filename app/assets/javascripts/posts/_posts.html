@@ -6,17 +6,17 @@
         <h3> {{post.title}} </h3>
       </div>
 
-          <div ng-repeat="comment in comments ">
+          <div ng-repeat="post in comments ">
               <span>
                  {{comment.name}}
               </span>
 
               <span>
-                {{comment.comment}}
+                {{post.comment}}
               </span>
           </div>
               <form ng-submit='addComment()'>
-                          <h3> Add a new comment </h3>
+                          <h3> Add a new post </h3>
                 <div class='form-group'>
                     <input type="text" ng-model='comment' class="form-control" placeholder="Comment" ng-model="body"></input>
                 </div>

@@ -10,12 +10,18 @@ angular.module('blacklives')
 'posts',
 //  $scope is communicating with controller and view
 function($scope, posts){
-
-    $scope.markus = 'cool guy';
-
-
+    // Test text - $scope.markus = 'cool guy';
 // Binding the $scope variable in our controller to the posts array in the Service(the .factory above)
-  // $scope.posts = posts.posts;
+  $scope.posts = posts.posts;
+  $scope.addPost = function() {
+    if(!scope.title || $scope.title === '') { return; }
+    posts.create({
+      title: $scope.title,
+      body: $scope.body,
+    });
+    $scope.title = '';
+    $scope.body = '';
+  };
 
 
   //   // The below if statement is preventing a user from submitting a blank title.

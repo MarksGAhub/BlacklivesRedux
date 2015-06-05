@@ -21,19 +21,19 @@
           //   }]
           // }
         })
-          // This page is the landing page displaying posts.
+          // This page is the landing page.
           .state('home', {
             url: '/home',
             templateUrl: 'home/home.html',
             controller: 'MainCtrl'
           })
-
+          // This is the post page displaying which will be displaying post.
           .state('posts',{
             url: '/posts/{id}',
             templateUrl: 'posts/_posts.html',
             controller: 'PostCtrl'
           })
-
+          // This is a log in page.
           .state('login',{
             url: '/login',
             templateUrl: 'auth/_login.html',
@@ -44,7 +44,7 @@
               });
             }]
           })
-
+          // This is a register page where users can register.
           .state('register',{
             url:'/register',
             templateUrl: 'auth/_register.html',

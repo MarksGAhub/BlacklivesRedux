@@ -3,29 +3,28 @@ angular.module('blacklives')
     .controller('PostCtrl',[
       '$scope',
       // stateParams is retrieving the id from the URL to load the right posts
-      '$stateParams',
       'posts',
-      function($scope, $stateParams, posts) {
-        $scope.comments = [];
-
+      'post',
+      function($scope, posts, post) {
+        $scope.post = posts;
         $scope.addComment = function(){
-            $scope.comments.push({
-                name: 'Markus',
-                comment: $scope.comment
-            });
-
-
+          if($scope.body === '' ){ return; }
+          posts.addComment(post.id, {
+            body: $scope.body,
+            author: 'user',
+          }).success(function(comment){
+            $scope.posts.comments.push(comment);
+          });
+          $scope.body = '';
         };
-        // $scope.post = posts.posts[$stateParams.id];
 
-        // $scope.addComment = function(){
-        //   if($scope.body === '' ){ return; }
-        //   $scope.posts.comments.push({
-        //     body: $scope.body,
-        //     author: 'user',
-        //   });
-        //   $scope.body = '';
-        // };
+      }]); // PostCtrl end.
 
-      }]);
-      // PostCtrl end.
+    // Stanleyscode
+     // $scope.posts = [];
+
+     //    $scope.addPost = function(){
+     //        $scope.comments.push({
+     //            name: 'Markus',
+     //            comment: $scope.comment
+     //        });
