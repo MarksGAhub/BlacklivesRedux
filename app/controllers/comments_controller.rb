@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    # only allowing authenticated users to comment.
+    # before_filter :authenticate_user!, only: [:create]
 
     def comment_params
         params.require(:comment).permit(:body)

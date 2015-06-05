@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -27,6 +27,7 @@ gem 'active_model_serializers'
 gem 'bower-rails'
 gem 'responders'
 gem 'sprockets', '2.12.3'
+gem 'devise', '~> 3.4.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,6 +46,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+  gem 'rails_12factor'
+  gem 'thin'
+
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

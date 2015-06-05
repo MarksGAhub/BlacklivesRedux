@@ -6,52 +6,28 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+<div class='collapse navbar-collapse pull-right' ng-controller='NavCtrl'>
+    <ul class="nav navbar-nav">
+        <li><a href="#/home">Home</a></li>
+        <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
+        <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+        <li ng-show="signedIn()"><a href="#/">{{ user.name }}</a></li>
+        <li ng-show="signedIn()"><a href="#/logout()">Log out</a></li>
+    </ul>
 
+</div>
 <!-- This information is being displayed in the application.html.erb  -->
 <body ng-app='blacklives'>
     <div class='row'>
         <!-- The below column is 6 wide and off set by 3 from the left. -->
         <div class="col-md-6 col-md-offset-3">
+              <!-- The below is including the nav bar. -->
+            <div ng-include='nav/_nav.html'></div>
             <!-- Telling ui-router where to place the template of the active state.  -->
           <ui-view></ui-view>
 
-
-            <!-- The below div contains the page header. -->
-
-
-              <!-- ng-repeat allows the info from the app.js to be repeated in an array.  -->
-              <!-- <div ng-repeat="post in posts"> -->
-                          <!-- Is pulling info from app.js to display an array of posts. -->
-                        <!-- {{post.title}} -->
-
-           <!--    </div>
-               <span>
-                  <a href="#/posts/{{$index}}">Comments</a>
-               </span> -->
-
-            <!-- <form ng-submit='addPost()'> -->
-
-                  <!-- <h3>Add a new post</h3> -->
-                      <!-- Below is a div containing the form -->
-                    <!-- <div class="form-group"> -->
-                      <!-- <input type="text" class="form-control" placeholder="Title" ng-model="title"/> -->
-                    <!-- </div> -->
-
-                    <!-- <div> -->
-                    <!-- A submit button -->
-                        <!-- <button type='submit' class='btn-primary'>Post</button> -->
-                    <!-- </div> -->
-
-            <!-- </form> -->
-
-
-
         </div>
     </div>
-<!-- This script allows for the creation of templates inside HTML -->
-
-
-
 
 </body>
 

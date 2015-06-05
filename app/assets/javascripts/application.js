@@ -14,6 +14,7 @@
 //= require 'jquery_ujs'
 //= require 'angular/angular'
 //= require 'angular-ui-router'
+//= require 'angular-devise'
 //= require 'angular-rails-templates'
 
 //= require 'angular-animate'
