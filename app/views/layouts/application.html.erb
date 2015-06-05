@@ -6,7 +6,16 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+<div class='collapse navbar-collapse pull-right' ng-controller='NavCtrl'>
+    <ul class="nav navbar-nav">
+        <li><a href="#/home">Home</a></li>
+        <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
+        <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+        <li ng-show="signedIn()"><a href="#/">{{ user.name }}</a></li>
+        <li ng-show="signedIn()"><a href="#/logout()">Log out</a></li>
+    </ul>
 
+</div>
 <!-- This information is being displayed in the application.html.erb  -->
 <body ng-app='blacklives'>
     <div class='row'>

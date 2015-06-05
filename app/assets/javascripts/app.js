@@ -10,28 +10,27 @@
 
       $stateProvider
       // This is the page that will display an index of posts.
-        .state('index', {
-          url: '/index',
-          templateUrl: 'index/index.html',
-          controller: 'MainCtrl',
-          // placed resolve property of ui-router beneath MainCtrl was only place not causing issues.
-          // resolve: {
-          //   postPromise: ['posts', function(posts){
-          //     return posts.getAll();
-          //   }]
-          // }
-        })
           // This page is the landing page.
           .state('home', {
             url: '/home',
             templateUrl: 'home/home.html',
-            controller: 'MainCtrl'
+            controller: 'MainCtrl',
+            resolve: {
+              postPromise: ['posts', function(posts){
+                return posts.getAll();
+              }]
+            }
           })
           // This is the post page displaying which will be displaying post.
           .state('posts',{
             url: '/posts/{id}',
             templateUrl: 'posts/_posts.html',
-            controller: 'PostCtrl'
+            controller: 'PostCtrl',
+            resolve: {
+              post: ['$stateParams', 'posts', function($stateParams, posts) {
+                return posts.get($state.Params.id);
+              }]
+            }
           })
           // This is a log in page.
           .state('login',{
